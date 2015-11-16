@@ -10,6 +10,7 @@
 		40234F431BF8534400BE2821 /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40234F421BF8534400BE2821 /* TaskTableViewCell.swift */; };
 		40234F451BF85B7900BE2821 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40234F441BF85B7900BE2821 /* Task.swift */; };
 		40234F471BF861DB00BE2821 /* TaskDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40234F461BF861DB00BE2821 /* TaskDetailViewController.swift */; };
+		40234F491BF987A100BE2821 /* AddTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40234F481BF987A100BE2821 /* AddTaskViewController.swift */; };
 		40781AA31BC2058C003CFD5A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40781AA21BC2058C003CFD5A /* AppDelegate.swift */; };
 		40781AA51BC2058C003CFD5A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40781AA41BC2058C003CFD5A /* MainViewController.swift */; };
 		40781AA81BC2058C003CFD5A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40781AA61BC2058C003CFD5A /* Main.storyboard */; };
@@ -40,6 +41,7 @@
 		40234F421BF8534400BE2821 /* TaskTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskTableViewCell.swift; sourceTree = "<group>"; };
 		40234F441BF85B7900BE2821 /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		40234F461BF861DB00BE2821 /* TaskDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskDetailViewController.swift; sourceTree = "<group>"; };
+		40234F481BF987A100BE2821 /* AddTaskViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTaskViewController.swift; sourceTree = "<group>"; };
 		40781A9F1BC2058C003CFD5A /* TaskIt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TaskIt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		40781AA21BC2058C003CFD5A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		40781AA41BC2058C003CFD5A /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 			children = (
 				40781AA21BC2058C003CFD5A /* AppDelegate.swift */,
 				40781AA41BC2058C003CFD5A /* MainViewController.swift */,
+				40234F481BF987A100BE2821 /* AddTaskViewController.swift */,
 				40234F461BF861DB00BE2821 /* TaskDetailViewController.swift */,
 				40781AA61BC2058C003CFD5A /* Main.storyboard */,
 				40234F421BF8534400BE2821 /* TaskTableViewCell.swift */,
@@ -265,6 +268,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				40234F451BF85B7900BE2821 /* Task.swift in Sources */,
+				40234F491BF987A100BE2821 /* AddTaskViewController.swift in Sources */,
 				40781AA51BC2058C003CFD5A /* MainViewController.swift in Sources */,
 				40781AA31BC2058C003CFD5A /* AppDelegate.swift in Sources */,
 				40234F431BF8534400BE2821 /* TaskTableViewCell.swift in Sources */,

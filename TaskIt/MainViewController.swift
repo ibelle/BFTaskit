@@ -33,6 +33,11 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         // Dispose of any resources that can be recreated.
     }
 
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        self.tableView.reloadData()
+    }
+    
     //UITableview data source
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return taskArray.count;
@@ -60,6 +65,9 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
             let thisTask = taskArray[indexPath!.row]
             detailVC.detailTask = thisTask
 
+        }else if segue.identifier == "showTaskAdd" {
+             let addTaskVC: AddTaskViewController = segue.destinationViewController as! AddTaskViewController
+            addTaskVC.mainVC = self
         }
     }
     //UITableView Delegate
@@ -70,6 +78,9 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         performSegueWithIdentifier("showTaskDetail", sender: self)
     }
 
+    @IBAction func addButtonTapped(sender: UIBarButtonItem) {
+        self.performSegueWithIdentifier("showTaskAdd", sender: self)
+    }
 
 
 }
