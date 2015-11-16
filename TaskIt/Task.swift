@@ -9,15 +9,15 @@
 import UIKit
 
 struct Task : CustomStringConvertible{
-    var maintask:String = ""
-    var subtask:String = ""
-    var date:String = ""
+    var maintask:String
+    var subtask:String
+    var date:NSDate
     var description: String {
         return "Task:\(maintask)::SubTask=\(subtask)::Date= \(date)"
     }
 
     
-    init(mainTask: String, subTask: String, date:String) {
+    init(mainTask: String, subTask: String, date:NSDate) {
         self.maintask = mainTask
         self.subtask = subTask
         self.date=date

@@ -13,14 +13,16 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     @IBOutlet weak var tableView: UITableView!
     
     var taskArray:[Task]=[]
+    let dateFormatter:NSDateFormatter = NSDateFormatter()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        dateFormatter.dateFormat = "MM/dd/yyyy"
         // Do any additional setup after loading the view, typically from a nib.
-        let task1 = Task(mainTask: "I Get Money", subTask: "Money I Got", date: "11/16/2015")
-        let task2 = Task(mainTask: "Gimme Tha Loot", subTask: "I'm a BadBoy", date: "11/18/2015")
-        let task3 = Task(mainTask: "Make It Rain", subTask: "Rain on dees #0es", date:"11/19/2015")
+        let task1 = Task(mainTask: "I Get Money", subTask: "Money I Got", date: dateFormatter.dateFromString("11/16/2015")!)
+        let task2 = Task(mainTask: "Gimme Tha Loot", subTask: "I'm a BadBoy", date: dateFormatter.dateFromString("10/18/2015")!)
+        let task3 = Task(mainTask: "Make It Rain", subTask: "Rain on dees #0es", date:dateFormatter.dateFromString("07/19/2015")!)
         
         taskArray = [task1,task2,task3]
         self.tableView.reloadData() //NOT NEEDED
@@ -43,7 +45,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let task = taskArray[indexPath.row]
         
         let cell:TaskTableViewCell =  tableView.dequeueReusableCellWithIdentifier("myCell") as! TaskTableViewCell
-        cell.dateLabel.text = task.date
+        cell.dateLabel.text = dateFormatter.stringFromDate(task.date)
         cell.taskLabel.text = task.maintask
         cell.subTaskLabel.text = task.subtask
         
