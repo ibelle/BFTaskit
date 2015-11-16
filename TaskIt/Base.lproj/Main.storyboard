@@ -118,7 +118,7 @@
                                     <rect key="frame" x="20" y="81" width="280" height="30"/>
                                 </variation>
                             </textField>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="22c-EB-7IA">
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="22c-EB-7IA">
                                 <rect key="frame" x="-160" y="-108" width="320" height="216"/>
                                 <date key="date" timeIntervalSinceReferenceDate="469263094.61995697">
                                     <!--2015-11-15 06:51:34 +0000-->

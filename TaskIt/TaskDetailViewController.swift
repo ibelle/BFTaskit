@@ -15,11 +15,20 @@ class TaskDetailViewController: UIViewController {
     @IBOutlet weak var taskDetailDate: UIDatePicker!
     
     var detailTask: Task!
+    let dateFormatter:NSDateFormatter = NSDateFormatter()
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-       print (self.detailTask)
+        print (self.detailTask)
+        dateFormatter.dateFormat = "MM/dd/yyyy"//FIX LATER
+        
+        self.taskDetailText.text = detailTask.maintask
+        self.subtaskDetailText.text = detailTask.subtask
+        self.taskDetailDate.date = dateFormatter.dateFromString(detailTask.date)!
+       
     }
 
     override func didReceiveMemoryWarning() {
@@ -37,5 +46,5 @@ class TaskDetailViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
 }
+
