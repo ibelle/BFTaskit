@@ -16,6 +16,7 @@ class TaskDetailViewController: UIViewController {
    
     
     var detailTask: Task!
+    var mainVC: MainViewController!
 
     
     
@@ -36,6 +37,12 @@ class TaskDetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
      @IBAction func cancelButtonTapped(sender: UIBarButtonItem) {
+        self.navigationController?.popViewControllerAnimated(true)
+    }
+   
+    @IBAction func doneButtonPressed(sender: UIBarButtonItem) {
+        let taskUpdate:Task = Task(mainTask: self.taskDetailText.text!, subTask: self.subtaskDetailText.text!, date: self.taskDetailDate.date)
+        mainVC.taskArray[mainVC.tableView.indexPathForSelectedRow!.row]=taskUpdate
         self.navigationController?.popViewControllerAnimated(true)
     }
 

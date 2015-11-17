@@ -25,7 +25,8 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let task3 = Task(mainTask: "Make It Rain", subTask: "Rain on dees #0es", date:dateFormatter.dateFromString("07/19/2015")!)
         
         taskArray = [task1,task2,task3]
-        self.tableView.reloadData() //NOT NEEDED
+        
+               self.tableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -35,6 +36,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
+        taskArray.sortInPlace({(taskOne:Task, taskTwo:Task) -> Bool in return taskOne.date.timeIntervalSince1970 < taskTwo.date.timeIntervalSince1970})
         self.tableView.reloadData()
     }
     
@@ -64,7 +66,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
             let indexPath = self.tableView.indexPathForSelectedRow
             let thisTask = taskArray[indexPath!.row]
             detailVC.detailTask = thisTask
-
+            detailVC.mainVC = self
         }else if segue.identifier == "showTaskAdd" {
              let addTaskVC: AddTaskViewController = segue.destinationViewController as! AddTaskViewController
             addTaskVC.mainVC = self

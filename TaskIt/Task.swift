@@ -12,6 +12,7 @@ struct Task : CustomStringConvertible{
     var maintask:String
     var subtask:String
     var date:NSDate
+    //var isCompleted:Bool
     var description: String {
         return "Task:\(maintask)::SubTask=\(subtask)::Date= \(date)"
     }
@@ -21,6 +22,7 @@ struct Task : CustomStringConvertible{
         self.maintask = mainTask
         self.subtask = subTask
         self.date=date
+     //   self.isCompleted=isCompleted
     }
     
     

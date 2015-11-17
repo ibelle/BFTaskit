@@ -134,7 +134,7 @@
                                     <rect key="frame" x="168" y="28" width="64" height="30"/>
                                 </variation>
                                 <connections>
-                                    <action selector="addTaskButtonTapped:" destination="Zn7-3r-3kc" eventType="touchUpInside" id="sa3-eH-coh"/>
+                                    <action selector="addTaskButtonTapped:" destination="Zn7-3r-3kc" eventType="touchUpInside" id="yYE-BH-g2E"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NnX-Z0-Ph4">
@@ -287,7 +287,11 @@
                                 <action selector="cancelButtonTapped:" destination="3pZ-in-mLi" id="III-Cj-32S"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Done" id="gbs-eD-NVX"/>
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="gbs-eD-NVX">
+                            <connections>
+                                <action selector="doneButtonPressed:" destination="3pZ-in-mLi" id="HHI-CK-m7t"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
