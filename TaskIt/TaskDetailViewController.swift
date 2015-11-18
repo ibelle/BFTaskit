@@ -41,8 +41,8 @@ class TaskDetailViewController: UIViewController {
     }
    
     @IBAction func doneButtonPressed(sender: UIBarButtonItem) {
-        let taskUpdate:Task = Task(mainTask: self.taskDetailText.text!, subTask: self.subtaskDetailText.text!, date: self.taskDetailDate.date)
-        mainVC.taskArray[mainVC.tableView.indexPathForSelectedRow!.row]=taskUpdate
+        let taskUpdate:Task = Task(mainTask: self.taskDetailText.text!, subTask: self.subtaskDetailText.text!, date: self.taskDetailDate.date, completed:false)
+        mainVC.taskDict["incomplete"]![mainVC.tableView.indexPathForSelectedRow!.row]=taskUpdate
         self.navigationController?.popViewControllerAnimated(true)
     }
 
