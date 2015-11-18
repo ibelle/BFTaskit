@@ -295,6 +295,7 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="doneButton" destination="gbs-eD-NVX" id="DCd-Ug-SY9"/>
                         <outlet property="subtaskDetailText" destination="5UM-nb-B6b" id="xuY-B5-SYd"/>
                         <outlet property="taskDetailDate" destination="22c-EB-7IA" id="MpF-cR-vUf"/>
                         <outlet property="taskDetailText" destination="S5m-7g-X02" id="cbC-4R-Stn"/>

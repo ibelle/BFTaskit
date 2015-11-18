@@ -13,6 +13,7 @@ class TaskDetailViewController: UIViewController {
     @IBOutlet weak var taskDetailText: UITextField!
     @IBOutlet weak var subtaskDetailText: UITextField!
     @IBOutlet weak var taskDetailDate: UIDatePicker!
+    @IBOutlet weak var doneButton: UIBarButtonItem!
    
     
     var detailTask: Task!
@@ -29,8 +30,17 @@ class TaskDetailViewController: UIViewController {
         self.taskDetailText.text = detailTask.maintask
         self.subtaskDetailText.text = detailTask.subtask
         self.taskDetailDate.date = detailTask.date
+        
+        if(self.detailTask.isCompleted){
+            self.taskDetailDate.userInteractionEnabled = false
+            self.subtaskDetailText.enabled = false
+            self.taskDetailText.enabled = false
+            self.doneButton.enabled = false
+        }
        
     }
+    
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -42,7 +52,8 @@ class TaskDetailViewController: UIViewController {
    
     @IBAction func doneButtonPressed(sender: UIBarButtonItem) {
         let taskUpdate:Task = Task(mainTask: self.taskDetailText.text!, subTask: self.subtaskDetailText.text!, date: self.taskDetailDate.date, completed:false)
-        mainVC.taskDict["incomplete"]![mainVC.tableView.indexPathForSelectedRow!.row]=taskUpdate
+        let indexPath = mainVC.tableView.indexPathForSelectedRow!
+        mainVC.taskDict[ "incomplete"]![indexPath.row]=taskUpdate
         self.navigationController?.popViewControllerAnimated(true)
     }
 
