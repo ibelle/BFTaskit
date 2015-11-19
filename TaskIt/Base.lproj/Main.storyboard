@@ -115,6 +115,7 @@
                         <viewControllerLayoutGuide type="bottom" id="GDW-nm-ADz"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="9Im-ie-Sbw">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PNb-f8-DEe">
@@ -229,13 +230,13 @@
         <!--Detail-->
         <scene sceneID="FaU-lu-Aeu">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="eV0-Ft-m5u" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="3pZ-in-mLi" customClass="TaskDetailViewController" customModule="TaskIt" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="cyb-L7-17l"/>
                         <viewControllerLayoutGuide type="bottom" id="GUT-8X-knK"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="JDc-RN-Z87">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Task" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="S5m-7g-X02">
@@ -301,6 +302,7 @@
                         <outlet property="taskDetailText" destination="S5m-7g-X02" id="cbC-4R-Stn"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eV0-Ft-m5u" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1911" y="393"/>
         </scene>

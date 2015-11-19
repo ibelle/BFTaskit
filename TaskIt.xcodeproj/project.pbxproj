@@ -18,6 +18,7 @@
 		40781AAD1BC2058C003CFD5A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40781AAB1BC2058C003CFD5A /* LaunchScreen.storyboard */; };
 		40781AB81BC2058C003CFD5A /* TaskItTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40781AB71BC2058C003CFD5A /* TaskItTests.swift */; };
 		40781AC31BC2058C003CFD5A /* TaskItUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40781AC21BC2058C003CFD5A /* TaskItUITests.swift */; };
+		40AAF1D41BFD571500EF709C /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40AAF1D31BFD571500EF709C /* CoreData.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		40781ABE1BC2058C003CFD5A /* TaskItUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TaskItUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		40781AC21BC2058C003CFD5A /* TaskItUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskItUITests.swift; sourceTree = "<group>"; };
 		40781AC41BC2058C003CFD5A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		40AAF1D31BFD571500EF709C /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				40AAF1D41BFD571500EF709C /* CoreData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -115,6 +118,7 @@
 				40781AAB1BC2058C003CFD5A /* LaunchScreen.storyboard */,
 				40781AAE1BC2058C003CFD5A /* Info.plist */,
 				40234F441BF85B7900BE2821 /* Task.swift */,
+				40AAF1D31BFD571500EF709C /* CoreData.framework */,
 			);
 			path = TaskIt;
 			sourceTree = "<group>";

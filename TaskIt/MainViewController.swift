@@ -20,12 +20,6 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         super.viewDidLoad()
         dateFormatter.dateFormat = "MM/dd/yyyy"
         // Do any additional setup after loading the view, typically from a nib.
-        let task1 = Task(mainTask: "I Get Money", subTask: "Money I Got", date: dateFormatter.dateFromString("11/16/2015")!, completed:false)
-        let task2 = Task(mainTask: "Gimme Tha Loot", subTask: "I'm a BadBoy", date: dateFormatter.dateFromString("10/18/2015")!, completed:false)
-        let task3 = Task(mainTask: "Make It Rain", subTask: "Rain on dees #0es", date:dateFormatter.dateFromString("07/19/2015")!, completed:false)
-        taskDict["incomplete"]=[task1,task2,task3]
-        taskDict["complete"]=[Task(mainTask: "Code this Project", subTask: "in Swift 2.1", date:dateFormatter.dateFromString("11/15/2015")!, completed:true)
-]
         self.tableView.reloadData()
     }
 
