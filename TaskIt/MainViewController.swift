@@ -7,20 +7,40 @@
 //
 
 import UIKit
+import CoreData
 
-class MainViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class MainViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     
-    var taskDict:[String:[Task]]=[:]
+    //var taskDict:[String:[Task]]=[:]
     let dateFormatter:NSDateFormatter = NSDateFormatter()
+    let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+    var fetchedResultsController: NSFetchedResultsController = NSFetchedResultsController()
+    
+
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         dateFormatter.dateFormat = "MM/dd/yyyy"
         // Do any additional setup after loading the view, typically from a nib.
-        self.tableView.reloadData()
+        self.fetchedResultsController = getFetchedResultsController()
+        fetchedResultsController.delegate = self
+        
+        do{
+        try fetchedResultsController.performFetch()
+        }catch{
+            var dict = [String: AnyObject]()
+            dict[NSUnderlyingErrorKey] = error as NSError
+            let wrappedError = NSError(domain: "YOUR_ERROR_DOMAIN", code: 9999, userInfo: dict)
+            // Replace this with code to handle the error appropriately.
+            // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+            NSLog("Unresolved error \(wrappedError), \(wrappedError.userInfo)")
+    
+        }
+        
+        //self.tableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -30,9 +50,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        taskDict["incomplete"]!.sortInPlace({(taskOne:Task, taskTwo:Task) -> Bool in return taskOne.date.timeIntervalSince1970 < taskTwo.date.timeIntervalSince1970})
-        taskDict["complete"]!.sortInPlace({(taskOne:Task, taskTwo:Task) -> Bool in return taskOne.date.timeIntervalSince1970 < taskTwo.date.timeIntervalSince1970})
-
+       
         self.tableView.reloadData()
     }
     
@@ -132,6 +150,19 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }else {
            return "complete"
         }
+    }
+    
+    func taskFetchRequest () -> NSFetchRequest {
+        let request = NSFetchRequest(entityName: "Task")
+        let sortDisc:NSSortDescriptor = NSSortDescriptor(key: "date", ascending: true)
+        request.sortDescriptors = [sortDisc]
+        
+        return request
+    }
+    
+    func getFetchedResultsController() -> NSFetchedResultsController {
+       let fetchedResultsController = NSFetchedResultsController(fetchRequest: self.taskFetchRequest(), managedObjectContext: self.managedObjectContext!, sectionNameKeyPath: nil, cacheName: nil)
+     return fetchedResultsController
     }
 
 }

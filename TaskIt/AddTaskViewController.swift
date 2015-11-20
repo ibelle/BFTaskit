@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class AddTaskViewController: UIViewController {
 
@@ -32,8 +33,34 @@ class AddTaskViewController: UIViewController {
     }
 
     @IBAction func addTaskButtonTapped(sender: UIButton) {
-        let task = Task(mainTask: taskTextField.text!, subTask: subTaskTextField.text!, date:taskDatePicker.date, completed: false)
-        mainVC?.taskDict["incomplete"]!.append(task)
+        let appDelegate=(UIApplication.sharedApplication().delegate as! AppDelegate)
+        let managedObjectContext = appDelegate.managedObjectContext
+        let entityDescription = NSEntityDescription.entityForName("Task", inManagedObjectContext: managedObjectContext!)
+        let task = Task(entity: entityDescription!, insertIntoManagedObjectContext: managedObjectContext)
+        
+        
+        task.mainTask = taskTextField.text!
+        task.subTask = subTaskTextField.text!
+        task.date = taskDatePicker.date
+        task.completed = false
+        
+        appDelegate.saveContext()
+        
+        let request = NSFetchRequest(entityName: "Task")
+        do{
+            let results:NSArray = try managedObjectContext!.executeFetchRequest(request)
+        for res in results {
+            print(res)
+            }
+        }catch{
+            var dict = [String: AnyObject]()
+            dict[NSUnderlyingErrorKey] = error as NSError
+            let wrappedError = NSError(domain: "YOUR_ERROR_DOMAIN", code: 9999, userInfo: dict)
+            // Replace this with code to handle the error appropriately.
+            // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+            NSLog("Unresolved error \(wrappedError), \(wrappedError.userInfo)")
+        }
+        
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     /*
