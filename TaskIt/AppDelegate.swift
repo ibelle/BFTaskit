@@ -44,7 +44,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     
     
-    // MARK: - Core Data stack
+    // MARK: - Core Data stack IB: MANUALLY ADDED AND MIGRATED TO XCode 7/iOS9
     lazy var applicationDocumentsDirectory: NSURL = {
         // The directory the application uses to store the Core Data store file. This code uses a directory named "self.com.AG.TaskIt" in the application's documents Application Support directory.
         let urls = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)

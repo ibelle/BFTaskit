@@ -24,7 +24,6 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     override func viewDidLoad() {
         super.viewDidLoad()
         dateFormatter.dateFormat = "MM/dd/yyyy"
-        // Do any additional setup after loading the view, typically from a nib.
         self.fetchedResultsController = getFetchedResultsController()
         fetchedResultsController.delegate = self
         
@@ -93,6 +92,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         return 25
     }
     
+    //Set title for section based on how many actual sections there are at the time
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if fetchedResultsController.sections?.count == 1 {
             let task = fetchedResultsController.fetchedObjects![0] as! Task
@@ -101,6 +101,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         return section == 0 ? "To-Do" : "Completed"
     }
     
+    //Duh. Set title for delete button, based on how many actual sections there are at the time
     func tableView(tableView: UITableView, titleForDeleteConfirmationButtonForRowAtIndexPath indexPath: NSIndexPath) -> String? {
         if fetchedResultsController.sections?.count == 1 {
             let task = fetchedResultsController.fetchedObjects![0] as! Task
@@ -109,6 +110,8 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         return indexPath.section == 0 ?  "End" : "Re-Open"
     }
     
+    
+    //For all row Editing Styles, repond to swipe action by toggling completed state
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         let thisTask = fetchedResultsController.objectAtIndexPath(indexPath) as! Task
         
@@ -124,11 +127,12 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
    
 
-    //Misc
+    //Automagically Update Table view wihen fetch operaton updates data
     func controllerDidChangeContent(controller: NSFetchedResultsController) {
         tableView.reloadData()
     }
     
+    //Set up Fetch Parameters
     func taskFetchRequest () -> NSFetchRequest {
         let request = NSFetchRequest(entityName: "Task")
         let sortDisc:NSSortDescriptor = NSSortDescriptor(key: "date", ascending: true)
@@ -138,6 +142,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         return request
     }
     
+    //Initialize FetchResults Controller
     func getFetchedResultsController() -> NSFetchedResultsController {
        let fetchedResultsController = NSFetchedResultsController(fetchRequest: self.taskFetchRequest(),
         managedObjectContext: self.managedObjectContext!, sectionNameKeyPath: "completed", cacheName: nil)
