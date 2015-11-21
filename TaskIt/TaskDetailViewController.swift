@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import CoreData
+
 
 class TaskDetailViewController: UIViewController {
 
@@ -17,7 +19,6 @@ class TaskDetailViewController: UIViewController {
    
     
     var detailTask: Task!
-    var mainVC: MainViewController!
 
     
     
@@ -27,11 +28,11 @@ class TaskDetailViewController: UIViewController {
         print (self.detailTask)
         
         
-        self.taskDetailText.text = detailTask.maintask
-        self.subtaskDetailText.text = detailTask.subtask
-        self.taskDetailDate.date = detailTask.date
+        self.taskDetailText.text = detailTask.mainTask
+        self.subtaskDetailText.text = detailTask.subTask
+        self.taskDetailDate.date = detailTask.date!
         
-        if(self.detailTask.isCompleted){
+        if (self.detailTask.completed != nil) {
             self.taskDetailDate.userInteractionEnabled = false
             self.subtaskDetailText.enabled = false
             self.taskDetailText.enabled = false
@@ -51,9 +52,13 @@ class TaskDetailViewController: UIViewController {
     }
    
     @IBAction func doneButtonPressed(sender: UIBarButtonItem) {
-        let taskUpdate:Task = Task(mainTask: self.taskDetailText.text!, subTask: self.subtaskDetailText.text!, date: self.taskDetailDate.date, completed:false)
-        let indexPath = mainVC.tableView.indexPathForSelectedRow!
-        mainVC.taskDict[ "incomplete"]![indexPath.row]=taskUpdate
+        let appDelegate = (UIApplication.sharedApplication().delegate as! AppDelegate)
+        detailTask.mainTask =  self.taskDetailText.text!
+        detailTask.subTask = self.subtaskDetailText.text!
+        detailTask.date = self.taskDetailDate.date
+        detailTask.completed = false
+    
+        appDelegate.saveContext()
         self.navigationController?.popViewControllerAnimated(true)
     }
 
