@@ -25,14 +25,11 @@ class TaskDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        print (self.detailTask)
-        
-        
         self.taskDetailText.text = detailTask.mainTask
         self.subtaskDetailText.text = detailTask.subTask
         self.taskDetailDate.date = detailTask.date!
         
-        if (self.detailTask.completed != nil) {
+        if self.detailTask.completed!.boolValue {
             self.taskDetailDate.userInteractionEnabled = false
             self.subtaskDetailText.enabled = false
             self.taskDetailText.enabled = false

@@ -57,7 +57,6 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let task = fetchedResultsController.objectAtIndexPath(indexPath) as! Task
-        print(task)
         let cell:TaskTableViewCell =  tableView.dequeueReusableCellWithIdentifier("myCell") as! TaskTableViewCell
         cell.dateLabel.text = dateFormatter.stringFromDate(task.date!)
         cell.taskLabel.text = task.mainTask
@@ -87,7 +86,6 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        print(indexPath.row)
         performSegueWithIdentifier("showTaskDetail", sender: self)
     }
     
